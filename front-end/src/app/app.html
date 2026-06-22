@@ -1,8 +1,18 @@
 <main class="main">
   <div class="content">
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+    <p>Navigation au dessus</p>
+      <p>Bienvenue sur Coup du Sort !!</p>
+      <p>Choissisez le thème qui vous plait et lancer votre tirage au sort !!</p>
   </div>
+     <h3>Créer Votre liste</h3>
+    <textarea [(ngModel)]="newParticipants"
+          placeholder="Un participant par ligne">
+    </textarea>
+
+    <button (click)="creerListe()">
+      Créer
+    </button>
+    <p>{{ addSucess }}</p>
 </main>
 
 <router-outlet />
