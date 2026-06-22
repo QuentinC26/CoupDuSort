@@ -27,10 +27,14 @@ public class Controller {
     }
 
     @PostMapping("/datadraw")
-    public String addDatadraw(@RequestBody DrawData datadraw) {
-        datadrawList.add(datadraw);
-        return "Données insérées avec succès";
+    public String addDatadraw(@RequestBody DrawRequest request) {
+
+    for (String participant : request.getParticipants()) {
+        System.out.println("Participant : " + participant);
     }
+
+    return "Liste reçue avec succès";
+   }
 
     @PutMapping("/datadraw/{id}")
     public String updateDatadraw(@PathVariable int id, @RequestBody DrawData updatedDataDraw) {
