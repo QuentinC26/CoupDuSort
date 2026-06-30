@@ -13,6 +13,17 @@
       Créer
     </button>
     <p>{{ addSucess }}</p>
+
+    <h3>Créer un tirage</h3>
+
+    <button (click)="faireTirage()">
+      Lancer le tirage
+    </button>
+
+    <div *ngIf="resultat">
+      <h3>Résultat :</h3>
+      <p>{{ resultat }}</p>
+   </div>
 </main>
 
 <router-outlet />
