@@ -29,11 +29,15 @@ public class Controller {
     @PostMapping("/datadraw")
     public String addDatadraw(@RequestBody DrawRequest request) {
 
-    for (String participant : request.getParticipants()) {
-        System.out.println("Participant : " + participant);
-    }
+       List<String> participants = request.getParticipants();
 
-    return "Liste reçue avec succès";
+       for (String participant : request.getParticipants()) {
+          System.out.println("Participant : " + participant);
+        }
+
+        int index = (int) (Math.random() * participants.size());
+        String resultat = participants.get(index);
+        return "Le tirage donne : " + resultat;
    }
 
     @PutMapping("/datadraw/{id}")
