@@ -5,13 +5,23 @@ import java.util.List;
 // Classe qui reçoit les données nécessaires pour faire le tirage.
 public class DrawRequest {
 
-    private List<String> participants;
+    private List<Participant> participants;
 
-    public List<String> getParticipants() {
+    private List<ForbiddenAssociation> forbiddenAssociations;
+
+    public List<Participant> getParticipants()  {
         return participants;
     }
 
-    public void setParticipants(List<String> participants) {
+    public void setParticipants(List<Participant> participants) {
         this.participants = participants;
+    }
+
+    public List<ForbiddenAssociation> getForbiddenAssociations() {
+        return forbiddenAssociations;
+    }
+
+    public void setForbiddenAssociations(List<ForbiddenAssociation> forbiddenAssociations) {
+        this.forbiddenAssociations = forbiddenAssociations;
     }
 }
