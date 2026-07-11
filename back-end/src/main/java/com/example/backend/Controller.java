@@ -21,6 +21,9 @@ public class Controller {
 
     private List<DrawData> datadrawList = new ArrayList<>();
 
+    // Création du validateur qui permettra de vérifier si un tirage respecte les règles définies par l'utilisateur.
+    private DrawValidator drawValidator = new DrawValidator();
+
     @GetMapping("/datadraw")
     public List<DrawData> getAlldatadraw() {
         return datadrawList;
@@ -29,15 +32,24 @@ public class Controller {
     @PostMapping("/datadraw")
     public String addDatadraw(@RequestBody DrawRequest request) {
 
-       List<String> participants = request.getParticipants();
+       List<Participant> participants = request.getParticipants();
 
-       for (String participant : request.getParticipants()) {
-          System.out.println("Participant : " + participant);
+       for (Participant participant : participants) {
+          System.out.println("Participant : " + participant.getName());
         }
 
+       if (request.getForbiddenAssociations() == null 
+        || request.getForbiddenAssociations().isEmpty()) {
+
+        // Pas de règle, on part sur un tirage classique
         int index = (int) (Math.random() * participants.size());
-        String resultat = participants.get(index);
-        return "Le tirage donne : " + resultat;
+        Participant resultat = participants.get(index);
+
+        return "Le tirage donne : " + resultat.getName();
+    }  else {
+        // Il y a des règles donc on utilisera DrawValidator
+        return "Le tirage donne : ";
+      }
    }
 
     @PutMapping("/datadraw/{id}")
