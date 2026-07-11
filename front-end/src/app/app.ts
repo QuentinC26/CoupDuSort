@@ -5,6 +5,11 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
+interface Participant {
+  id: number;
+  name: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,20 +21,25 @@ import { CommonModule } from '@angular/common';
 export class App{
 
   newParticipants = '';
-  participants: string[] = [];
+  participants: Participant[] = [];
   addSucess = '';
   resultat = '';
 
   constructor(private http: HttpClient) {}
 
   creerListe() {
-    this.participants = this.newParticipants
+      const noms = this.newParticipants
       .split('\n')
       // trim() enlève les espaces au début et à la fin (exemple : " bob " devient "bob")
       .map(p => p.trim())
       .filter(p => p.length > 0);
+
+      // Transforme la liste de noms en liste d'objets participants
+      this.participants = noms.map((nom, index) => ({
+        id: index + 1,
+        name: nom
+      }));
       
-      this.faireTirage();
       this.addSucess = `${this.participants.length} participants ajoutés !`;
   }
 
