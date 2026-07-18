@@ -14,6 +14,47 @@
     </button>
     <p>{{ addSucess }}</p>
 
+  <h3>Ajouter des Interdictions :</h3>
+
+  <label>Participant 1</label>
+  <select [(ngModel)]="participant1Id">
+    <option *ngFor="let p of participants" [value]="p.id">
+      {{ p.name }}
+    </option>
+  </select>
+
+  <label>Participant 2</label>
+  <select [(ngModel)]="participant2Id">
+    <option *ngFor="let p of participants" [value]="p.id">
+      {{ p.name }}
+    </option>
+  </select>
+
+   <button (click)="ajouterRegle()">
+    Ajouter la règle
+   </button>
+
+   <h3>Interdictions actuelles :</h3>
+
+  <div *ngIf="afficherRegles">
+
+    <p *ngIf="forbiddenAssociations.length === 0">
+      Aucune règle ajoutée.
+    </p>
+
+    <p *ngFor="let regle of forbiddenAssociations">
+      {{ regle.firstParticipantId }}
+      ❌
+      {{ regle.secondParticipantId }}
+    </p>
+
+  </div>
+
+  <button (click)="AfficherRegles()">
+    {{ afficherRegles ? 'Masquer' : 'Détails' }}
+  </button>
+
+
     <h3>Créer un tirage</h3>
 
     <button (click)="faireTirage()">
