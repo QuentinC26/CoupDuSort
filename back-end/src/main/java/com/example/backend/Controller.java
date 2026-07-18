@@ -45,11 +45,20 @@ public class Controller {
         int index = (int) (Math.random() * participants.size());
         Participant resultat = participants.get(index);
 
-        return "Le tirage donne : " + resultat.getName();
+        return "Résultat du tirage : " + resultat.getName();
     }  else {
-        // Il y a des règles donc on utilisera DrawValidator
-        return "Le tirage donne : ";
-      }
+    
+      Participant resultat;
+
+      while (true) {
+
+        int index = (int) (Math.random() * participants.size());
+        resultat = participants.get(index);
+
+        break;
+    }
+      return "Résultat du tirage : " + resultat.getName();
+    }
    }
 
     @PutMapping("/datadraw/{id}")
