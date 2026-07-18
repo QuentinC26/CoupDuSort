@@ -59,7 +59,7 @@ export class App{
     });
   }
 
-  toggleRegles() {
+  AfficherRegles() {
     this.afficherRegles = !this.afficherRegles;
   }
 
