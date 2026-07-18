@@ -10,6 +10,11 @@ interface Participant {
   name: string;
 }
 
+interface ForbiddenAssociation {
+  firstParticipantId: number;
+  secondParticipantId: number;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,6 +27,10 @@ export class App{
 
   newParticipants = '';
   participants: Participant[] = [];
+  forbiddenAssociations: ForbiddenAssociation[] = [];
+  participant1Id = 0;
+  participant2Id = 0;
+  afficherRegles = true;
   addSucess = '';
   resultat = '';
 
@@ -43,11 +52,23 @@ export class App{
       this.addSucess = `${this.participants.length} participants ajoutés !`;
   }
 
+  ajouterRegle() {
+    this.forbiddenAssociations.push({
+      firstParticipantId: this.participant1Id,
+      secondParticipantId: this.participant2Id
+    });
+  }
+
+  toggleRegles() {
+    this.afficherRegles = !this.afficherRegles;
+  }
+
   faireTirage() {
     this.http.post(
     'http://localhost:8080/api/datadraw',
     {
-      participants: this.participants
+      participants: this.participants,
+      forbiddenAssociations: this.forbiddenAssociations
     },
     {
       // Empêche Angular d'essayer de convertir la réponse en objet JSON
