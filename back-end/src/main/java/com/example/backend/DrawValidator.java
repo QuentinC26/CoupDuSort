@@ -4,44 +4,56 @@ import java.util.List;
 
 public class DrawValidator {
 
-    // Vérifie si le tirage respecte toutes les règles.
+    // Vérifie si un participant peut être tiré.
     public boolean isValid(
-        Participant participant1,
-        Participant participant2,
+        Participant participant,
+        List<Participant> alreadyDrawn,
         DrawRequest request
     ) {
 
-        if (isForbidden(participant1, participant2, request.getForbiddenAssociations())) {
+        // Vérifie si le participant a déjà été tiré
+        if (alreadyDrawn.contains(participant)) {
             return false;
         }
-
+        
+        // Vérifie les interdictions
+        if (hasForbiddenAssociation(
+          participant,
+          alreadyDrawn,
+          request.getForbiddenAssociations()
+        )) {
+          return false;
+        }
         return true;
     }
 
-    // Vérifie s'il existe une interdiction entre deux participants.
-    private boolean isForbidden(
-      Participant a,
-      Participant b,
+    // Vérifie si le participant a une interdiction avec un participant déjà tiré
+    private boolean hasForbiddenAssociation(
+      Participant participant,
+      List<Participant> alreadyDrawn,
       List<ForbiddenAssociation> rules
-   ) {
+    ) {
 
-    for (ForbiddenAssociation rule : rules) {
-
-        if (
-            (rule.getFirstParticipantId() == a.getId()
-            &&
-            rule.getSecondParticipantId() == b.getId())
-
-            ||
-
-            (rule.getFirstParticipantId() == b.getId()
-            &&
-            rule.getSecondParticipantId() == a.getId())
-        ) {
-            return true;
-        }
+    if (rules == null) {
+        return false;
     }
 
+    // Vérifie si le participant qu'on veut tirer a une interdiction avec un participant qui est déjà sorti.
+    for (Participant drawnParticipant : alreadyDrawn) {
+        for (ForbiddenAssociation rule : rules) {
+            if (
+                (rule.getFirstParticipantId() == participant.getId()
+                &&
+                rule.getSecondParticipantId() == drawnParticipant.getId())
+                ||
+                (rule.getFirstParticipantId() == drawnParticipant.getId()
+                &&
+                rule.getSecondParticipantId() == participant.getId())
+            ) {
+                return true;
+            }
+        }
+    }
     return false;
   }
 }
