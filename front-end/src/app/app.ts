@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 interface Participant {
   id: number;
   name: string;
+  hatId?: number;
 }
 
 interface ForbiddenAssociation {
@@ -33,10 +34,19 @@ export class App{
   afficherRegles = true;
   addSucess = '';
   resultat = '';
+  useHatSystem = false;
+  numberOfHats = 2;
 
   constructor(private http: HttpClient) {}
 
   creerListe() {
+      this.http.post('http://localhost:8080/api/datadraw/reset', 
+        {},
+      {
+        responseType: 'text'
+      }
+      ).subscribe();
+
       const noms = this.newParticipants
       .split('\n')
       // trim() enlève les espaces au début et à la fin (exemple : " bob " devient "bob")
@@ -46,7 +56,8 @@ export class App{
       // Transforme la liste de noms en liste d'objets participants
       this.participants = noms.map((nom, index) => ({
         id: index + 1,
-        name: nom
+        name: nom,
+        hatId: this.useHatSystem ? 1 : undefined
       }));
       
       this.addSucess = `${this.participants.length} participants ajoutés !`;
@@ -68,7 +79,8 @@ export class App{
     'http://localhost:8080/api/datadraw',
     {
       participants: this.participants,
-      forbiddenAssociations: this.forbiddenAssociations
+      forbiddenAssociations: this.forbiddenAssociations,
+      numberOfHats: this.numberOfHats
     },
     {
       // Empêche Angular d'essayer de convertir la réponse en objet JSON
@@ -77,7 +89,7 @@ export class App{
   ).subscribe(result => {
     this.resultat = result;
   });
-}
+  }
 }
 
 bootstrapApplication(App);
