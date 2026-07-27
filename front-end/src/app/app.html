@@ -54,11 +54,55 @@
     {{ afficherRegles ? 'Masquer' : 'Détails' }}
   </button>
 
+  <h3>Système de chapeaux</h3>
+
+  <label>
+    <input 
+      type="checkbox"
+      [(ngModel)]="useHatSystem">
+    Activer les chapeaux
+  </label>
+
+    <div *ngIf="useHatSystem">
+
+    <label>
+      Nombre de chapeaux :
+    </label>
+
+    <input 
+      type="number"
+      [(ngModel)]="numberOfHats"
+      min="1">
+
+    </div>
+
+    <div *ngIf="useHatSystem">
+
+  <h3>Choix des chapeaux</h3>
+
+  <div *ngFor="let participant of participants">
+
+  <label>
+    {{participant.name}}
+  </label>
+
+  <select [(ngModel)]="participant.hatId">
+
+    <option 
+      *ngFor="let hat of [].constructor(numberOfHats); let i=index"
+      [value]="i+1">
+
+      Chapeau {{i+1}}
+
+    </option>
+    </select>
+    </div>
+    </div>
 
     <h3>Créer un tirage</h3>
 
     <button (click)="faireTirage()">
-      Lancer le tirage
+      Tirer un participant
     </button>
 
     <div *ngIf="resultat">
