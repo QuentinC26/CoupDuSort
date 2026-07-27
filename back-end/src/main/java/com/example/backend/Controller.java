@@ -20,9 +20,13 @@ import java.util.List;
 public class Controller {
 
     private List<DrawData> datadrawList = new ArrayList<>();
-
     // Création du validateur qui permettra de vérifier si un tirage respecte les règles définies par l'utilisateur.
     private DrawValidator drawValidator = new DrawValidator();
+    // Stocke les participants déjà tirés pour garantir qu'un participant ne soit pas sélectionné plusieurs fois
+    private List<Participant> alreadyDrawn = new ArrayList<>();
+    // // Historique des participants tirés au sort
+    private List<Participant> drawHistory = new ArrayList<>();
+    private int currentHat = 1;
 
     @GetMapping("/datadraw")
     public List<DrawData> getAlldatadraw() {
@@ -31,38 +35,72 @@ public class Controller {
 
     @PostMapping("/datadraw")
     public String addDatadraw(@RequestBody DrawRequest request) {
-
-       List<Participant> participants = request.getParticipants();
-
-       for (Participant participant : participants) {
-          System.out.println("Participant : " + participant.getName());
+        List<Participant> participants = request.getParticipants();
+        Participant resultat = makeDraw(
+                participants,
+                request
+        );
+        if (resultat == null) {
+          return "Le tirage est terminé";
         }
-
-       if (request.getForbiddenAssociations() == null 
-        || request.getForbiddenAssociations().isEmpty()) {
-
-        // Pas de règle, on part sur un tirage classique
-        int index = (int) (Math.random() * participants.size());
-        Participant resultat = participants.get(index);
-
         return "Résultat du tirage : " + resultat.getName();
-    }  else {
+    }
+
+    private Participant makeDraw(
+        List<Participant> participants,
+        DrawRequest request
+    ) {
+
+    // Liste vide qui servira à stocker uniquement les participants autorisés.
+    List<Participant> availableParticipants = new ArrayList<>();
+
+    for (Participant participant : participants) {
+        // Si les chapeaux sont activés, on ne prend que le chapeau actuel
+        if (participant.getHatId() != null && participant.getHatId().intValue() != currentHat) {
+            continue;
+        }
+        // Vérifie que le participant peut être tiré
+        if (drawValidator.isValid(
+                participant,
+                alreadyDrawn,
+                request
+        )) {
+            availableParticipants.add(participant);
+        }
+    }
+    // Vérifie si la liste des participants possibles est vide
+    if (availableParticipants.isEmpty()) {
+        return null;
+    }
+
+    int index = (int)(Math.random() * availableParticipants.size());
+    Participant participant = availableParticipants.get(index);
     
-      Participant resultat;
-
-      while (true) {
-
-        int index = (int) (Math.random() * participants.size());
-        resultat = participants.get(index);
-
-        break;
+    alreadyDrawn.add(participant);
+    drawHistory.add(participant);
+    // Passe au chapeau suivant uniquement si les chapeaux existent
+    if (participant.getHatId() != null) {
+       currentHat++;
+        if (currentHat > request.getNumberOfHats()) {
+          currentHat = 1;
+      }
     }
-      return "Résultat du tirage : " + resultat.getName();
-    }
+    return participant;
    }
 
+    @PostMapping("/datadraw/reset")
+    public String resetDraw() {
+      alreadyDrawn.clear();
+      drawHistory.clear();
+      currentHat = 1;
+      return "Tirage réinitialisé";
+    }
+
     @PutMapping("/datadraw/{id}")
-    public String updateDatadraw(@PathVariable int id, @RequestBody DrawData updatedDataDraw) {
+    public String updateDatadraw(
+            @PathVariable int id,
+            @RequestBody DrawData updatedDataDraw) {
+
         for (DrawData datadraw : datadrawList) {
             if (datadraw.getId() == id) {
                 datadraw.setName(updatedDataDraw.getName());
@@ -77,4 +115,4 @@ public class Controller {
         datadrawList.removeIf(datadraw -> datadraw.getId() == id);
         return "Données supprimées avec succès";
     }
-  }
+}
