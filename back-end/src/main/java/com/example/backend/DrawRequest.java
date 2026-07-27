@@ -6,8 +6,8 @@ import java.util.List;
 public class DrawRequest {
 
     private List<Participant> participants;
-
     private List<ForbiddenAssociation> forbiddenAssociations;
+    private int numberOfHats;
 
     public List<Participant> getParticipants()  {
         return participants;
@@ -23,5 +23,13 @@ public class DrawRequest {
 
     public void setForbiddenAssociations(List<ForbiddenAssociation> forbiddenAssociations) {
         this.forbiddenAssociations = forbiddenAssociations;
+    }
+
+     public int getNumberOfHats() {
+        return numberOfHats;
+    }
+
+    public void setNumberOfHats(int numberOfHats) {
+        this.numberOfHats = numberOfHats;
     }
 }
