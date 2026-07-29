@@ -8,6 +8,7 @@ public class DrawValidator {
     public boolean isValid(
         Participant participant,
         List<Participant> alreadyDrawn,
+        List<Participant> currentGroup,
         int currentHat,
         DrawRequest request
     ) {
@@ -21,7 +22,7 @@ public class DrawValidator {
           // Vérifie les interdictions quand les chapeaux sont activés
           if (hasForbiddenAssociationInHat(
             participant,
-            alreadyDrawn,
+            currentGroup,
             currentHat,
             request.getForbiddenAssociations()
           )) {
@@ -69,7 +70,7 @@ public class DrawValidator {
     // Vérifie si le participant a une interdiction avec un participant déjà tiré quand les chapeaux sont activés
     private boolean hasForbiddenAssociationInHat(
       Participant participant,
-      List<Participant> alreadyDrawn,
+      List<Participant> currentGroup,
       int currentHat,
       List<ForbiddenAssociation> rules
     ) {
@@ -78,11 +79,7 @@ public class DrawValidator {
         return false;
     }
 
-    for (Participant drawnParticipant : alreadyDrawn) {
-        // On ignore les participants des autres chapeaux
-        if (drawnParticipant.getHatId() == null || drawnParticipant.getHatId().intValue() != currentHat) {
-            continue;
-        }
+    for (Participant drawnParticipant : currentGroup) {
         for (ForbiddenAssociation rule : rules) {
             if (
                 (rule.getFirstParticipantId() == participant.getId()
