@@ -24,6 +24,8 @@ public class Controller {
     private DrawValidator drawValidator = new DrawValidator();
     // Stocke les participants déjà tirés pour garantir qu'un participant ne soit pas sélectionné plusieurs fois
     private List<Participant> alreadyDrawn = new ArrayList<>();
+    
+    private List<Participant> currentGroup = new ArrayList<>();
     // // Historique des participants tirés au sort
     private List<Participant> drawHistory = new ArrayList<>();
     private int currentHat = 1;
@@ -63,6 +65,7 @@ public class Controller {
         if (drawValidator.isValid(
                 participant,
                 alreadyDrawn,
+                currentGroup,
                 currentHat,
                 request
         )) {
@@ -78,12 +81,15 @@ public class Controller {
     Participant participant = availableParticipants.get(index);
     
     alreadyDrawn.add(participant);
+    currentGroup.add(participant);
     drawHistory.add(participant);
     // Passe au chapeau suivant uniquement si les chapeaux existent
     if (participant.getHatId() != null) {
        currentHat++;
         if (currentHat > request.getNumberOfHats()) {
           currentHat = 1;
+          // Permet de passer au groupe suivant
+          currentGroup.clear();
       }
     }
     return participant;
