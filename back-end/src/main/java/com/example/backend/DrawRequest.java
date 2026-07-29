@@ -8,6 +8,7 @@ public class DrawRequest {
     private List<Participant> participants;
     private List<ForbiddenAssociation> forbiddenAssociations;
     private int numberOfHats;
+    private boolean useHatSystem;
 
     public List<Participant> getParticipants()  {
         return participants;
@@ -31,5 +32,13 @@ public class DrawRequest {
 
     public void setNumberOfHats(int numberOfHats) {
         this.numberOfHats = numberOfHats;
+    }
+
+    public boolean isUseHatSystem() {
+      return useHatSystem;
+    }
+
+    public void setUseHatSystem(boolean useHatSystem) {
+      this.useHatSystem = useHatSystem;
     }
 }
