@@ -63,9 +63,10 @@ public class Controller {
         if (drawValidator.isValid(
                 participant,
                 alreadyDrawn,
+                currentHat,
                 request
         )) {
-            availableParticipants.add(participant);
+        availableParticipants.add(participant);
         }
     }
     // Vérifie si la liste des participants possibles est vide
