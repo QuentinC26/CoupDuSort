@@ -80,7 +80,8 @@ export class App{
     {
       participants: this.participants,
       forbiddenAssociations: this.forbiddenAssociations,
-      numberOfHats: this.numberOfHats
+      numberOfHats: this.numberOfHats,
+      useHatSystem: this.useHatSystem
     },
     {
       // Empêche Angular d'essayer de convertir la réponse en objet JSON
