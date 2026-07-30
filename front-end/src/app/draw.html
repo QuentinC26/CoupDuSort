@@ -1,23 +1,26 @@
 <main class="main">
   <div class="content">
       <p>Bienvenue sur Coup du Sort !!</p>
-      <img src="./images/logocds.png" alt="logo coup du sort">
+      <img class="logo", src="./images/logocds.png", alt="logo coup du sort">
       <p>Choissisez le thème qui vous plait et lancer votre tirage au sort !!</p>
   </div>
-     <h3>Créer Votre liste</h3>
-    <textarea [(ngModel)]="newParticipants"
+     <h3>Créer votre liste :</h3>
+    <textarea class="createList" [(ngModel)]="newParticipants"
           placeholder="Un participant par ligne">
     </textarea>
 
+    <div class="createListbutton">
     <button (click)="creerListe()">
       Créer
     </button>
+    </div>
     <p>{{ addSucess }}</p>
 
-  <h3>Ajouter des Interdictions :</h3>
+  <h3>Ajouter des interdictions :</h3>
 
+  <div class="center-section">
    <label>
-    <input 
+    <input
       type="checkbox"
       [(ngModel)]="useForbiddenAssociations">
     Activer les interdictions
@@ -25,23 +28,29 @@
 
    <div *ngIf="useForbiddenAssociations">
 
-  <label>Participant 1</label>
+  <div class="participant">
+  <label>Participant 1 : </label>
   <select [(ngModel)]="participant1Id">
     <option *ngFor="let p of participants" [value]="p.id">
       {{ p.name }}
     </option>
   </select>
+  </div>
 
-  <label>Participant 2</label>
+  <div class="participant">
+  <label>Participant 2 :</label>
   <select [(ngModel)]="participant2Id">
     <option *ngFor="let p of participants" [value]="p.id">
       {{ p.name }}
     </option>
   </select>
+  </div>
 
+  <div class="new_rules">
    <button (click)="ajouterRegle()">
     Ajouter la règle
    </button>
+   </div>
 
    <h3>Interdictions actuelles :</h3>
 
@@ -51,7 +60,7 @@
       Aucune règle ajoutée.
     </p>
 
-    <p *ngFor="let regle of forbiddenAssociations">
+    <p class="forbiddenassociation" *ngFor="let regle of forbiddenAssociations">
       {{ regle.firstParticipantId }}
       ❌
       {{ regle.secondParticipantId }}
@@ -64,11 +73,13 @@
   </button>
 
   </div>
+  </div>
 
   <h3>Ajouter le système de chapeaux : </h3>
 
+  <div class="center-section">
   <label>
-    <input 
+    <input
       type="checkbox"
       [(ngModel)]="useHatSystem">
     Activer les chapeaux
@@ -89,7 +100,7 @@
 
     <div *ngIf="useHatSystem">
 
-  <h3>Choix des chapeaux</h3>
+  <h3>Choix des chapeaux :</h3>
 
   <div *ngFor="let participant of participants">
 
@@ -109,15 +120,15 @@
     </select>
     </div>
     </div>
+    </div>
 
-    <h3>Créer un tirage</h3>
+    <h3>Réaliser le tirage !!</h3>
 
-    <button (click)="faireTirage()">
+    <button class="tirerparticipant" (click)="faireTirage()">
       Tirer un participant
     </button>
 
     <div *ngIf="resultat">
-      <h3>Résultat :</h3>
       <p>{{ resultat }}</p>
    </div>
 </main>
