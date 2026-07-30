@@ -1,0 +1,11 @@
+nav{
+  text-align: center;
+  padding: 10px;
+}
+
+a{
+  text-decoration: none;
+  margin: 30px;
+  font-size: 18px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+}
