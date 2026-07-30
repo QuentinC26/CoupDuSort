@@ -1,0 +1,78 @@
+/* Choses globales */
+
+p{
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.logo{
+   align-items: center;
+   max-width: 250px; 
+   display: block;
+   margin: auto;
+}
+
+h3{
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.createList{
+  align-items: center;
+  display: block;
+  margin: auto;
+}
+
+.createListbutton{
+  text-align: center;
+  padding: 10px;
+}
+
+.center-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.tirerparticipant{
+  align-items: center;
+  display: block;
+  margin: auto;
+}
+
+.participant{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.new_rules{
+  align-items: center;
+  display: block;
+  margin: auto;
+  padding: 10px;
+}
+
+.forbiddenassociation{
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+}
+
+/* Code CSS pour le thème Classique */
+
+/* Code CSS pour le thème Casino */
+
+/* Code CSS pour le thème Noel */
+
+/* Code CSS pour le thème Halloween */
+
+/* Code CSS pour le thème Sportif */
