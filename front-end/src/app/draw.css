@@ -18,31 +18,72 @@ h3{
   font-family: "Comic Sans MS", Arial, sans-serif;
   text-align: center;
   padding: 15px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-.createList{
+.creerliste{
   align-items: center;
   display: block;
   margin: auto;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+}
+
+.createList{
+  width: 90%;
+  max-width: 500px;
+  height: 250px;
+  padding: 10px;
+  resize: none;
+  box-sizing: border-box;
+  align-items: center;
+  display: block;
+  margin: auto;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 16px;
 }
 
 .createListbutton{
   text-align: center;
   padding: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 16px;
 }
 
-.center-section {
+.center-section{
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 16px;
 }
 
-.tirerparticipant{
+.activate-option {
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
   align-items: center;
-  display: block;
-  margin: auto;
+  gap: 10px;
+}
+
+.activate-option input {
+  width: 15px;
+  height: 15px;
+}
+
+.showrules-container{
+  text-align: center;
+}
+
+.norules{
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
 }
 
 .participant{
@@ -51,13 +92,21 @@ h3{
   justify-content: center;
   gap: 10px;
   margin: 10px 0;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
 }
 
 .new_rules{
-  align-items: center;
-  display: block;
-  margin: auto;
+  text-align: center;
   padding: 10px;
+}
+
+.addrulesbutton{
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
 }
 
 .forbiddenassociation{
@@ -67,12 +116,36 @@ h3{
   font-size: 16px;
 }
 
-/* Code CSS pour le thème Classique */
+.showrules{
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+}
 
-/* Code CSS pour le thème Casino */
+.hatchoice{
+  text-align: center;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+}
 
-/* Code CSS pour le thème Noel */
+.hatnumber{
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+}
 
-/* Code CSS pour le thème Halloween */
+.numberofhat{
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 16px;
+}
 
-/* Code CSS pour le thème Sportif */
+.tirerparticipant{
+  align-items: center;
+  display: block;
+  margin: auto;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+}
