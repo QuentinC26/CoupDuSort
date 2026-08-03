@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router} from '@angular/router';
 
 interface Participant {
   id: number;
@@ -19,15 +20,7 @@ interface ForbiddenAssociation {
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './draw.html',
-  styleUrl: './draw.css',
-   template: `
-    <h3>Router</h3>
-    <nav>
-      <a routerLink="/">Home</a> |
-      <a routerLink="/about">About</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `
+  styleUrl: './draw.css'
 })
 
 export class Draw{
@@ -44,7 +37,31 @@ export class Draw{
   useHatSystem = false;
   numberOfHats = 2;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
+
+  getLogo(): string {
+
+  switch (this.router.url) {
+    case '/casino':
+      return './images/casino.png';
+
+    case '/noel':
+      return './images/noel.png';
+
+    case '/halloween':
+      return './images/citrouille.png';
+
+    case '/sportif':
+      return './images/sport.png';
+
+    default:
+      return './images/logocds.png';
+    }
+
+  }
 
   creerListe() {
       this.http.post('http://localhost:8080/api/datadraw/reset', 
