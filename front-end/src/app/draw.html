@@ -1,7 +1,7 @@
 <main class="main">
   <div class="content">
       <p>Bienvenue sur Coup du Sort !!</p>
-      <img class="logo", src="./images/logocds.png", alt="logo coup du sort">
+      <img class="logo" [src]="getLogo()" alt="logo coup du sort">
       <p>Choissisez le thème qui vous plait et lancer votre tirage au sort !!</p>
   </div>
      <h3>Créer votre liste :</h3>
@@ -10,7 +10,7 @@
     </textarea>
 
     <div class="createListbutton">
-    <button (click)="creerListe()">
+    <button class="creerliste" (click)="creerListe()">
       Créer
     </button>
     </div>
@@ -19,7 +19,7 @@
   <h3>Ajouter des interdictions :</h3>
 
   <div class="center-section">
-   <label>
+   <label class="activate-option">
     <input
       type="checkbox"
       [(ngModel)]="useForbiddenAssociations">
@@ -47,7 +47,7 @@
   </div>
 
   <div class="new_rules">
-   <button (click)="ajouterRegle()">
+   <button class="addrulesbutton" (click)="ajouterRegle()">
     Ajouter la règle
    </button>
    </div>
@@ -56,7 +56,7 @@
 
   <div *ngIf="afficherRegles">
 
-    <p *ngIf="forbiddenAssociations.length === 0">
+    <p class="norules" *ngIf="forbiddenAssociations.length === 0">
       Aucune règle ajoutée.
     </p>
 
@@ -68,9 +68,11 @@
 
   </div>
 
-  <button (click)="AfficherRegles()">
+  <div class="showrules-container">
+  <button class="showrules" (click)="AfficherRegles()">
     {{ afficherRegles ? 'Masquer' : 'Détails' }}
   </button>
+  </div>
 
   </div>
   </div>
@@ -78,7 +80,7 @@
   <h3>Ajouter le système de chapeaux : </h3>
 
   <div class="center-section">
-  <label>
+  <label class="activate-option">
     <input
       type="checkbox"
       [(ngModel)]="useHatSystem">
@@ -87,11 +89,11 @@
 
     <div *ngIf="useHatSystem">
 
-    <label>
+    <label class="hatnumber">
       Nombre de chapeaux :
     </label>
 
-    <input 
+    <input class="numberofhat"
       type="number"
       [(ngModel)]="numberOfHats"
       min="1">
@@ -104,6 +106,7 @@
 
   <div *ngFor="let participant of participants">
 
+  <div class="hatchoice">
   <label>
     {{participant.name}}
   </label>
@@ -118,6 +121,7 @@
 
     </option>
     </select>
+    </div>
     </div>
     </div>
     </div>
