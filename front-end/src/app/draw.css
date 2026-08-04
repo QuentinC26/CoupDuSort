@@ -226,7 +226,7 @@ h3{
 /* Thème classique */
 
 .theme-classique {
-  background-color: rgb(137, 49, 137);
+  background-image: linear-gradient(rgb(128, 31, 141), rgb(255, 255, 79));
   color: rgb(255, 255, 79);
 }
 
