@@ -50,12 +50,12 @@ a{
 /* Thème classique */
 
 .theme-classique{
-  background-color: rgb(137, 49, 137);
+  background-color: rgb(128, 31, 141);
   color: rgb(255, 255, 79);
 }
 
 .theme-classique body{
-  color: rgb(137, 49, 137);
+  background-color: rgb(128, 31, 141);
 }
 
 .theme-classique nav a {
