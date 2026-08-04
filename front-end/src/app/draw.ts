@@ -47,20 +47,31 @@ export class Draw{
   switch (this.router.url) {
     case '/casino':
       return './images/casino.png';
-
     case '/noel':
       return './images/noel.png';
-
     case '/halloween':
       return './images/citrouille.png';
-
     case '/sportif':
       return './images/sport.png';
-
     default:
       return './images/logocds.png';
     }
+  }
 
+  getTheme(): string {
+    switch(this.router.url) {
+      case '/casino':
+        console.log(this.router.url);
+        return 'theme-casino';
+      case '/noel':
+        return 'theme-noel';
+        case '/halloween':
+          return 'theme-halloween';
+        case '/sportif':
+          return 'theme-sportif';
+        default:
+          return 'theme-classique';
+    }
   }
 
   creerListe() {
