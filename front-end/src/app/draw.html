@@ -1,4 +1,4 @@
-<main class="main">
+<main class="main" [class]="getTheme()">
   <div class="content">
       <p>Bienvenue sur Coup du Sort !!</p>
       <img class="logo" [src]="getLogo()" alt="logo coup du sort">
@@ -14,9 +14,9 @@
       Créer
     </button>
     </div>
-    <p>{{ addSucess }}</p>
+    <p class="success-message" *ngIf="addSucess"> {{ addSucess }}</p>
 
-  <h3>Ajouter des interdictions :</h3>
+  <h3 class="addforbiddenmessage">Ajouter des interdictions :</h3>
 
   <div class="center-section">
    <label class="activate-option">
@@ -30,7 +30,7 @@
 
   <div class="participant">
   <label>Participant 1 : </label>
-  <select [(ngModel)]="participant1Id">
+  <select class="forbiddenselector" [(ngModel)]="participant1Id"> 
     <option *ngFor="let p of participants" [value]="p.id">
       {{ p.name }}
     </option>
@@ -39,7 +39,7 @@
 
   <div class="participant">
   <label>Participant 2 :</label>
-  <select [(ngModel)]="participant2Id">
+  <select class="forbiddenselector" [(ngModel)]="participant2Id">
     <option *ngFor="let p of participants" [value]="p.id">
       {{ p.name }}
     </option>
@@ -111,7 +111,7 @@
     {{participant.name}}
   </label>
 
-  <select [(ngModel)]="participant.hatId">
+  <select class="hatchoiceselector" [(ngModel)]="participant.hatId">
 
     <option 
       *ngFor="let hat of [].constructor(numberOfHats); let i=index"
@@ -126,13 +126,13 @@
     </div>
     </div>
 
-    <h3>Réaliser le tirage !!</h3>
-
+    <div class="buttontirerspace">
     <button class="tirerparticipant" (click)="faireTirage()">
       Tirer un participant
     </button>
+    </div>
 
-    <div *ngIf="resultat">
-      <p>{{ resultat }}</p>
+    <div class="result" *ngIf="resultat">
+      <p>🎉 {{ resultat }} 🎉</p>
    </div>
 </main>
