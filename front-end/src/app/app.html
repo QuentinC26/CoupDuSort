@@ -1,9 +1,15 @@
-<nav>
-  <a routerLink="/">Accueil</a>
-  <a routerLink="/casino">Casino</a>
-  <a routerLink="/noel">Noël</a>
-  <a routerLink="/halloween">Halloween</a>
-  <a routerLink="/sportif">Sportif</a>
+<div [class]="getTheme()">
+<button class="hamburger" (click)="toggleMenu()">
+  ☰
+</button>
+
+<nav [class.mobile-open]="menuOuvert">
+  <a routerLink="/" (click)="menuOuvert=false">Accueil</a>
+  <a routerLink="/casino" (click)="menuOuvert=false">Casino</a>
+  <a routerLink="/noel" (click)="menuOuvert=false">Noël</a>
+  <a routerLink="/halloween" (click)="menuOuvert=false">Halloween</a>
+  <a routerLink="/sportif" (click)="menuOuvert=false">Sportif</a>
 </nav>
 
 <router-outlet></router-outlet>
+</div>
