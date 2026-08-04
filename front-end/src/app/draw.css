@@ -5,6 +5,7 @@ p{
   text-align: center;
   padding: 15px;
   font-size: 18px;
+  font-weight: bold;
 }
 
 .logo{
@@ -29,6 +30,7 @@ h3{
   border-radius: 10px;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
+  font-weight: bold;
 }
 
 .createList{
@@ -52,6 +54,19 @@ h3{
   font-size: 16px;
 }
 
+.success-message {
+  margin: 0;
+  padding: 5px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.addforbiddenmessage{
+  padding-top: 10px;
+}
+
 .center-section{
   display: flex;
   flex-direction: column;
@@ -64,15 +79,12 @@ h3{
 .activate-option {
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-weight: bold;
 }
 
 .activate-option input {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 
 .showrules-container{
@@ -84,6 +96,7 @@ h3{
   text-align: center;
   padding: 15px;
   font-size: 18px;
+  font-weight: bold;
 }
 
 .participant{
@@ -92,6 +105,14 @@ h3{
   justify-content: center;
   gap: 10px;
   margin: 10px 0;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+}
+
+.forbiddenselector{
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
 }
@@ -107,13 +128,21 @@ h3{
   border-radius: 10px;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
+  font-weight: bold;
 }
 
 .forbiddenassociation{
   font-family: "Comic Sans MS", Arial, sans-serif;
   text-align: center;
   padding: 15px;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  max-height: 30px;
+  max-width: 100px;
+  margin: 5px auto;
 }
 
 .showrules{
@@ -122,22 +151,40 @@ h3{
   border-radius: 10px;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
+  padding-top: 5px;
 }
 
 .hatchoice{
   text-align: center;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
+  font-weight: bold;
+  margin: 5px auto;
+}
+
+.hatchoiceselector{
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .hatnumber{
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
+  font-weight: bold;
 }
 
 .numberofhat{
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 16px;
+  font-weight: bold;
+  max-width: 73px;
 }
 
 .tirerparticipant{
@@ -148,4 +195,385 @@ h3{
   border-radius: 10px;
   font-family: "Comic Sans MS", Arial, sans-serif;
   font-size: 18px;
+  font-weight: bold;
+}
+
+.buttontirerspace{
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.result{
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 630px;
+  max-height: 90px;
+  margin: 0 auto;
+}
+
+.result p {
+  align-items: center;
+  font-weight: bold;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  font-size: 30px;
+}
+
+/* Thème classique */
+
+.theme-classique {
+  background-color: rgb(137, 49, 137);
+  color: rgb(255, 255, 79);
+}
+
+.theme-classique p {
+  color: black;
+}
+
+.theme-classique h3 {
+  color: black;
+}
+
+.theme-classique .createList{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .creerliste{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .activate-option {
+  color: black;
+}
+
+.theme-classique .activate-option input{
+  accent-color: black;
+}
+
+.theme-classique .activate-option input:checked {
+  accent-color: rgb(255, 255, 79);
+}
+
+.theme-classique .participant{
+  color: black;
+}
+
+.theme-classique .forbiddenselector{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .addrulesbutton{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .showrules{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .forbiddenassociation{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .numberofhat{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .hatchoice{
+  color: black;
+}
+
+.theme-classique .hatchoiceselector{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .hatnumber{
+  color: black;
+}
+
+.theme-classique .tirerparticipant{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+.theme-classique .result{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
+/* Thème casino */
+
+.theme-casino {
+  background-color: black;
+  color: gold;
+}
+
+.theme-casino p {
+  color: black;
+}
+
+.theme-casino h3 {
+  color: black;
+}
+
+.theme-casino .createList{
+  color: gold;
+}
+
+.theme-casino .creerliste{
+  color: gold;
+}
+
+.theme-casino .activate-option input{
+  accent-color: white;
+}
+
+.theme-casino .activate-option input:checked {
+  accent-color: gold;
+}
+
+.theme-casino .participant{
+  color: gold;
+}
+
+.theme-casino .forbiddenselector{
+  color: gold;
+}
+
+.theme-casino .addrulesbutton{
+  color: gold;
+}
+
+.theme-casino .showrules{
+  color: gold;
+}
+
+.theme-casino .numberofhat{
+  color: gold;
+}
+
+.theme-casino .hatchoice{
+  color: gold;
+}
+
+.theme-casino .hatchoiceselector{
+  color: gold;
+}
+
+.theme-casino .hatnumber{
+  color: black;
+}
+
+.theme-casino .tirerparticipant{
+  color: gold;
+}
+
+/* Thème Noel */
+
+.theme-noel {
+  background-color: black;
+  color: gold;
+}
+
+.theme-noel p {
+  color: black;
+}
+
+.theme-noel h3 {
+  color: black;
+}
+
+.theme-noel .createList{
+  color: gold;
+}
+
+.theme-noel .creerliste{
+  color: gold;
+}
+
+.theme-noel .activate-option input{
+  accent-color: white;
+}
+
+.theme-noel .activate-option input:checked {
+  accent-color: gold;
+}
+
+.theme-noel .participant{
+  color: gold;
+}
+
+.theme-noel .forbiddenselector{
+  color: gold;
+}
+
+.theme-noel .addrulesbutton{
+  color: gold;
+}
+
+.theme-noel .showrules{
+  color: gold;
+}
+
+.theme-noel .numberofhat{
+  color: gold;
+}
+
+.theme-noel .hatchoice{
+  color: gold;
+}
+
+.theme-noel .hatchoiceselector{
+  color: gold;
+}
+
+.theme-noel .hatnumber{
+  color: black;
+}
+
+.theme-noel .tirerparticipant{
+  color: gold;
+}
+
+/* Thème Halloween */
+
+.theme-halloween {
+  background-color: black;
+  color: gold;
+}
+
+.theme-halloween p {
+  color: black;
+}
+
+.theme-halloween h3 {
+  color: black;
+}
+
+.theme-halloween .createList{
+  color: gold;
+}
+
+.theme-halloween .creerliste{
+  color: gold;
+}
+
+.theme-halloween .activate-option input{
+  accent-color: white;
+}
+
+.theme-halloween .activate-option input:checked {
+  accent-color: gold;
+}
+
+.theme-halloween .participant{
+  color: gold;
+}
+
+.theme-halloween .forbiddenselector{
+  color: gold;
+}
+
+.theme-halloween .addrulesbutton{
+  color: gold;
+}
+
+.theme-halloween .showrules{
+  color: gold;
+}
+
+.theme-halloween .numberofhat{
+  color: gold;
+}
+
+.theme-halloween .hatchoice{
+  color: gold;
+}
+
+.theme-halloween .hatchoiceselector{
+  color: gold;
+}
+
+.theme-halloween .hatnumber{
+  color: black;
+}
+
+.theme-halloween .tirerparticipant{
+  color: gold;
+}
+
+/* Thème Sportif */
+
+.theme-sportif {
+  background-color: black;
+  color: gold;
+}
+
+.theme-sportif p {
+  color: black;
+}
+
+.theme-sportif h3 {
+  color: black;
+}
+
+.theme-sportif .createList{
+  color: gold;
+}
+
+.theme-sportif .creerliste{
+  color: gold;
+}
+
+.theme-sportif .activate-option input{
+  accent-color: white;
+}
+
+.theme-sportif .activate-option input:checked {
+  accent-color: gold;
+}
+
+.theme-sportif .participant{
+  color: gold;
+}
+
+.theme-sportif .forbiddenselector{
+  color: gold;
+}
+
+.theme-sportif .addrulesbutton{
+  color: gold;
+}
+
+.theme-sportif .showrules{
+  color: gold;
+}
+
+.theme-sportif .numberofhat{
+  color: gold;
+}
+
+.theme-sportif .hatchoice{
+  color: gold;
+}
+
+.theme-sportif .hatchoiceselector{
+  color: gold;
+}
+
+.theme-sportif .hatnumber{
+  color: black;
+}
+
+.theme-sportif .tirerparticipant{
+  color: gold;
 }
