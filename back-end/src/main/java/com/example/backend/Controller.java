@@ -45,7 +45,7 @@ public class Controller {
         if (resultat == null) {
           return "Le tirage est terminé";
         }
-        return "Résultat du tirage : " + resultat.getName();
+        return "Résultat : " + resultat.getName();
     }
 
     private Participant makeDraw(
