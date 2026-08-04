@@ -1,5 +1,9 @@
 /* Choses globales */
 
+main{
+  padding-bottom: 20px;
+}
+
 p{
   font-family: "Comic Sans MS", Arial, sans-serif;
   text-align: center;
@@ -204,21 +208,19 @@ h3{
 }
 
 .result{
-  align-items: center;
   border: 1px solid #000;
   border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  max-width: 630px;
-  max-height: 90px;
+  padding: 10px;
   margin: 0 auto;
+  max-width: 630px;
 }
 
-.result p {
-  align-items: center;
-  font-weight: bold;
-  font-family: "Comic Sans MS", Arial, sans-serif;
+.result p{
+  margin: 0;
+  padding: 0;
+  text-align: center;
   font-size: 30px;
+  font-weight: bold;
 }
 
 /* Thème classique */
@@ -333,6 +335,10 @@ h3{
   color: gold;
 }
 
+.theme-casino .activate-option {
+  color: black;
+}
+
 .theme-casino .activate-option input{
   accent-color: white;
 }
@@ -357,6 +363,11 @@ h3{
   color: gold;
 }
 
+.theme-casino .forbiddenassociation{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
 .theme-casino .numberofhat{
   color: gold;
 }
@@ -375,6 +386,11 @@ h3{
 
 .theme-casino .tirerparticipant{
   color: gold;
+}
+
+.theme-casino .result{
+  background-color: rgb(255, 255, 79);
+  color: black;
 }
 
 /* Thème Noel */
@@ -398,6 +414,10 @@ h3{
 
 .theme-noel .creerliste{
   color: gold;
+}
+
+.theme-noel .activate-option {
+  color: black;
 }
 
 .theme-noel .activate-option input{
@@ -424,6 +444,11 @@ h3{
   color: gold;
 }
 
+.theme-noel .forbiddenassociation{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
 .theme-noel .numberofhat{
   color: gold;
 }
@@ -442,6 +467,11 @@ h3{
 
 .theme-noel .tirerparticipant{
   color: gold;
+}
+
+.theme-noel .result{
+  background-color: rgb(255, 255, 79);
+  color: black;
 }
 
 /* Thème Halloween */
@@ -465,6 +495,10 @@ h3{
 
 .theme-halloween .creerliste{
   color: gold;
+}
+
+.theme-halloween .activate-option {
+  color: black;
 }
 
 .theme-halloween .activate-option input{
@@ -491,6 +525,11 @@ h3{
   color: gold;
 }
 
+.theme-halloween .forbiddenassociation{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
 .theme-halloween .numberofhat{
   color: gold;
 }
@@ -509,6 +548,11 @@ h3{
 
 .theme-halloween .tirerparticipant{
   color: gold;
+}
+
+.theme-halloween .result{
+  background-color: rgb(255, 255, 79);
+  color: black;
 }
 
 /* Thème Sportif */
@@ -532,6 +576,10 @@ h3{
 
 .theme-sportif .creerliste{
   color: gold;
+}
+
+.theme-sportif .activate-option {
+  color: black;
 }
 
 .theme-sportif .activate-option input{
@@ -558,6 +606,11 @@ h3{
   color: gold;
 }
 
+.theme-sportif .forbiddenassociation{
+  background-color: rgb(255, 255, 79);
+  color: black;
+}
+
 .theme-sportif .numberofhat{
   color: gold;
 }
@@ -576,4 +629,9 @@ h3{
 
 .theme-sportif .tirerparticipant{
   color: gold;
+}
+
+.theme-sportif .result{
+  background-color: rgb(255, 255, 79);
+  color: black;
 }
