@@ -14,7 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Pour éviter les erreurs Cors
-@CrossOrigin(origins = "http://localhost:4200") 
+@CrossOrigin(origins = {
+    "http://localhost:4200",
+    "https://coupdusort.netlify.app"
+})
 @RestController
 @RequestMapping("/api")
 public class Controller {
