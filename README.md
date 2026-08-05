@@ -4,10 +4,11 @@ Coup du sort est un projet personnel. Le but de ce projet est de créer une appl
 
 ## Table des matières
 
-
 - [Technologies utilisées](#technologiesutiliséés)
 - [Installation](#installation)
-
+- [Fonctionnalités de l'application](#Fonctionnalitésdel'application)
+- [License](#licence)
+- [Contributeurs](#contributeurs)
 
 ## Technologies utilisées
 
@@ -37,3 +38,32 @@ cd ..
 Le lancement de l’application se fait via Docker. Aucune installation n’est nécessaire pour le back-end, celui-ci étant conteneurisé.
 
 docker compose up
+
+## Fonctionnalités
+
+Coup du Sort est une application de tirage au sort proposant plusieurs modes :
+
+- **Tirage classique** : effectue un tirage au sort parmi une liste de participants définie par l'utilisateur.
+
+- **Tirage avec interdictions** : permet de définir des contraintes afin qu'un participant ne puisse pas être tiré après un autre. Par exemple, pour éviter qu'un couple s'offre un cadeau lors d'un Secret Santa.
+
+- **Tirage avec chapeaux** : permet de répartir les participants dans plusieurs chapeaux avant le tirage. Ce mode est pratique pour organiser des compétitions sportives, comme les tirages des Coupes du monde.
+
+- **Tirage avec interdictions et chapeaux** : combine les deux fonctionnalités précédentes. Par exemple, il est possible de répartir les équipes par niveau dans différents chapeaux tout en empêchant que des pays d'un même continent se retrouvent dans le même groupe.
+
+## Licence
+
+Ce projet est licencié sous la licence MIT - voir le fichier LICENSE pour plus de détails.
+
+## Contributeurs
+
+Le projet a été créé par **Quentin Zuzlewski** (QuentinC26). Il est le développeur full stack principal de ce projet.  
+Pour toute question sur le projet, vous pouvez le contacter à l'adresse email suivante : **qzuzlewski@gmail.com**
+
+<br></br>
+<a href="https://github.com/QuentinC26">
+  <img src="https://github.com/QuentinC26.png" alt="QuentinC26" width="30" height="30"/>
+</a>
+<br></br>
+
+Pour la liste complète des contributeurs et leurs rôles, consultez le fichier [CONTRIBUTORS.md](CONTRIBUTORS.md).
