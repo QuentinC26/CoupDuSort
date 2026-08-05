@@ -39,7 +39,7 @@ Le lancement de l’application se fait via Docker. Aucune installation n’est 
 
 docker compose up
 
-## Fonctionnalités
+## Fonctionnalités de l'application
 
 Coup du Sort est une application de tirage au sort proposant plusieurs modes :
 
