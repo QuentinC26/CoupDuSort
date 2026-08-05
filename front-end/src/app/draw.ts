@@ -75,7 +75,7 @@ export class Draw{
   }
 
   creerListe() {
-      this.http.post('http://localhost:4200/api/datadraw/reset', 
+      this.http.post('http://coupdusort.onrender.com/api/datadraw/reset', 
         {},
       {
         responseType: 'text'
@@ -111,7 +111,7 @@ export class Draw{
 
   faireTirage() {
     this.http.post(
-    'http://localhost:4200/api/datadraw',
+    'http://coupdusort.onrender.com/api/datadraw',
     {
       participants: this.participants,
       forbiddenAssociations: this.forbiddenAssociations,
